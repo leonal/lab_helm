@@ -1,0 +1,31 @@
+affinity: {}
+fullnameOverride: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: nginx
+imagePullSecrets: []
+ingress:
+  annotations: {}
+  enabled: false
+  hosts:
+  - host: chart-example.local
+    paths: []
+  tls: []
+nameOverride: ""
+nodeSelector: {}
+podSecurityContext: {}
+redis:
+  configmap: appendonly no
+  fullnameOverride: redis
+  usePassword: false
+replicaCount: 1
+resources: {}
+securityContext: {}
+service:
+  port: 80
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  create: true
+  name: null
+tolerations: []
