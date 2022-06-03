@@ -7,18 +7,22 @@ node() {
     }
 
     stage("Lint") {
+        helmExecute script: this
 
     }
 
     stage("Install & Test") {
+        helmExecute script: this
 
     }
 
     stage("Package Charts") {
+        helmExecute script: this
 
     }
-    
+
     stage("Push Charts to Chart Repo") {
+        helmExecute script: this
 
     }
 

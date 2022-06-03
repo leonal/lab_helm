@@ -1,0 +1,5 @@
+general:
+
+steps:
+  helmExecute:
+    chartPath: helm-charts/charts/demo
