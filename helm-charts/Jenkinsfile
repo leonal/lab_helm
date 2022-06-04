@@ -11,8 +11,8 @@ node() {
     }
 
     stage("Install & Test") {
-        /* helmExecute script: this, helmCommand: 'dependency', dependency: 'update'*/
-        helmExecute script: this, helmCommand: 'install'
+        helmExecute script: this, helmCommand: 'dependency', dependency: 'update', chartPath: 'helm-charts/charts/demo'
+        helmExecute script: this, helmCommand: 'install', chartPath: 'helm-charts/charts/demo'
         helmExecute script: this, helmCommand: 'test'
         helmExecute script: this, helmCommand: 'uninstall'
     }
