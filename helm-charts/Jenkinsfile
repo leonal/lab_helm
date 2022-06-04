@@ -10,9 +10,13 @@ node() {
         helmExecute script: this, helmCommand: 'lint'
     }
 
+    stage("Package") {
+        helmExecute script: this, helmCommand: 'package', packageDependencyUpdate: true, chartPath: 'helm-charts/charts/demo'
+    }
+    
     stage("Install & Test") {
         /*helmExecute script: this, helmCommand: 'dependency', dependency: 'update', chartPath: 'helm-charts/charts/demo'*/
-        helmExecute script: this, helmCommand: 'install', chartPath: 'helm-charts/charts/demo', targetRepositoryName: 'demo'
+        helmExecute script: this, helmCommand: 'install', chartPath: 'helm-charts/charts/demo', targetRepositoryName: 'lab_chart_repo'
         helmExecute script: this, helmCommand: 'test'
         helmExecute script: this, helmCommand: 'uninstall'
     }
