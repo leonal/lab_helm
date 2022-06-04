@@ -7,7 +7,7 @@ node() {
     }
 
     stage("Lint") {
-        kubernetesDeploy script: this
+        helmExecute script: this
     }
 
     stage("Install & Test") {
@@ -15,6 +15,7 @@ node() {
     }
 
     stage("Package Charts") {
+        kubernetesDeploy script: this
 
     }
 
