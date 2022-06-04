@@ -11,7 +11,7 @@ node() {
     }
 
     stage("Install & Test") {
-        helmExecute script: this, helmCommand: 'dependency'
+        helmExecute script: this, helmCommand: 'dependency', dependency: 'update'
         helmExecute script: this, helmCommand: 'install'
         helmExecute script: this, helmCommand: 'test'
         helmExecute script: this, helmCommand: 'uninstall'
