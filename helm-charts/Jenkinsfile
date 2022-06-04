@@ -7,15 +7,19 @@ node() {
     }
 
     stage("Lint") {
-        helmExecute script: this
+        helmExecute script: this, helmCommand: 'lint'
     }
 
     stage("Install & Test") {
-        helmExecute script: this
+        helmExecute script: this, helmCommand: 'dependency'
+        helmExecute script: this, helmCommand: 'install'
+        helmExecute script: this, helmCommand: 'test'
+        helmExecute script: this, helmCommand: 'uninstall'
     }
 
     stage("Package Charts") {
-        kubernetesDeploy script: this
+        /* kubernetesDeploy script: this */
+        /* kubernetesDeploy script: this, deployTool: 'helm3', chartPath: 'myChart', deploymentName: 'myRelease', image: 'nginx', containerRegistryUrl: 'https://docker.io' */
 
     }
 
