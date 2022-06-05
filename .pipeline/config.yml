@@ -3,8 +3,8 @@ general:
 steps:
   kubernetesDeploy:
     deployTool: 'helm3'
-    chartPath: 'helm-charts/charts/demo'
-    deploymentName: 'demo'
+    chartPath: 'helm-charts/charts/nginx'
+    deploymentName: 'nginx'
 
   helmExecute:
-    chartPath: helm-charts/charts/demo
+    chartPath: helm-charts/charts/nginx
