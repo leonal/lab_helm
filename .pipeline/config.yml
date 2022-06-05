@@ -1,5 +1,5 @@
 general:
-
+  kubeConfigFileCredentialsId: kube1
 steps:
   kubernetesDeploy:
     deployTool: 'helm3'
