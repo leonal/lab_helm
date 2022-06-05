@@ -1,10 +1,10 @@
 general:
-  kubeConfigFileCredentialsId: kube1
+  kubeConfigFileCredentialsId: 'kube1'
 steps:
   kubernetesDeploy:
     deployTool: 'helm3'
-    chartPath: 'helm-charts/charts/nginx'
-    deploymentName: 'nginx'
+    chartPath: 'helm-charts/charts/demo'
+    deploymentName: 'demo'
 
   helmExecute:
-    chartPath: helm-charts/charts/nginx
+    chartPath: helm-charts/charts/demo
