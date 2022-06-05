@@ -11,8 +11,8 @@ node() {
     }
 
     stage("Publish") {
-        helmExecute script: this, helmCommand: 'publish', packageDependencyUpdate: true, chartPath: 'helm-charts/charts/nginx'
-        /*, targetRepositoryName: 'lab_chart_repo', targetRepositoryURL: 'https://leonal.github.io/lab_chart_repo/'*/
+        helmExecute script: this, helmCommand: 'publish', packageDependencyUpdate: true, chartPath: 'helm-charts/charts/nginx', targetRepositoryName: 'lab_chart_repo'
+        /*, targetRepositoryURL: 'https://leonal.github.io/lab_chart_repo/'*/
     }
     
     stage("Install & Test") {
