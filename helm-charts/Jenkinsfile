@@ -11,7 +11,7 @@ node() {
     }
 
     stage("Publish") {
-        helmExecute script: this, helmCommand: 'install', chartPath: 'helm-charts/charts/demo', targetRepositoryName: 'lab_chart_repo', targetRepositoryURL: 'https://leonal.github.io/lab_chart_repo/'
+        helmExecute script: this, helmCommand: 'install', chartPath: 'helm-charts/charts/demo', targetRepositoryName: 'lab_chart_repo', targetRepositoryURL: 'https://leonal.github.io/lab_chart_repo/', kubeConfigFileCredentialsId:'kube1'
         helmExecute script: this, helmCommand: 'publish', packageDependencyUpdate: true, chartPath: 'helm-charts/charts/demo', targetRepositoryName: 'lab_chart_repo' , targetRepositoryURL: 'https://leonal.github.io/lab_chart_repo/'
         /* */
 
